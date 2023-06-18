@@ -21,9 +21,9 @@ jobs:
         run: |
           make semgrep-junit || true
 
+# eslint . --ext .js,.jsx,.ts,.tsx --ignore-pattern *.test.ts  -f @microsoft/eslint-formatter-sarif -o eslint.sarif || true
       - name: eslint
         run: |
-          eslint . --ext .js,.jsx,.ts,.tsx --ignore-pattern *.test.ts  -f @microsoft/eslint-formatter-sarif -o eslint.sarif || true
           eslint . -f json --ext .js,.jsx,.ts,.tsx --ignore-pattern *.test.ts -o eslint-report.json . || true
 
       - name: convert junit results to sarif
